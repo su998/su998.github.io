@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9f6587;
+  background: #36be1b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3133,7 +3133,7 @@ pre .javascript .function {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("/images/bg.jpg");
+    background-image: url("/images/bg1.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
