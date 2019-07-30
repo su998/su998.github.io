@@ -1742,61 +1742,22 @@ pre .javascript .function {
   max-width: 120px;
   height: auto;
   border: 1px solid #eee;
-/*首页头像自动旋转*/
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  transition: 0.6s all;
 }
-.site-author-image .thumb-lg {
-  width: 130px;
-}
-.site-author-image .avatar {
+.site-author-image {
   -webkit-transition: 0.4s;
   -webkit-transition: -webkit-transform 0.4s ease-out;
   transition: transform 0.4s ease-out;
   -moz-transition: -moz-transform 0.4s ease-out;
 }
-.site-author-image .avatar:hover {
-  -webkit-transform: rotateZ(360deg);
-  -moz-transform: rotateZ(360deg);
-  -ms-transform: rotateZ(360deg);
-  -o-transform: rotateZ(360deg);
-  transform: rotateZ(360deg);
-  -webkit-transform: rotateZ(360deg);
-  -moz-transform: rotateZ(360deg);
-}
-.site-author-image #aside-user span.avatar {
-  animation-timing-function: cubic-bezier(0, 0, 0.07, 1) !important;
-  border: 0 solid;
-}
-.site-author-image #aside-user span.avatar:hover {
-  -webkit-transform: rotate(360deg) scale(1.2);
-  -moz-transform: rotate(360deg) scale(1.2);
-  -ms-transform: rotate(360deg) scale(1.2);
-  -o-transform: rotate(360deg) scale(1.2);
-  transform: rotate(360deg) scale(1.2);
-  border-width: 5px;
-  animation: avatar 0.5s;
-}
-.site-author-image #放大的时间和大小自行修改以下数值,
-.site-author-image .item-thumb {
-  cursor: pointer;
-  transition: all 0.6s;
-}
-.site-author-image .item-thumb:hover {
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  -o-transform: scale(1.05);
-  transform: scale(1.05);
-}
-.site-author-image .item-thumb-small {
-  cursor: pointer;
-  transition: all 0.6s;
-}
-.site-author-image .item-thumb-small:hover {
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  -o-transform: scale(1.05);
-  transform: scale(1.05);
+.site-author-image:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -transform: rotate(360deg);
 }
 .site-author-name {
   margin: 0;
@@ -1878,7 +1839,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #08d5ff;
+  background: #d6ff69;
 }
 .links-of-blogroll {
   font-size: 13px;
