@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0009ff;
+  background: #0d79ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3132,19 +3132,12 @@ pre .javascript .function {
   }
 }
 @media screen and (min-width: 1200px) {
-  body {
-    background-image: url("/images/bg1.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 50% 50%;
-    background-size: cover;
-  }
   #footer a {
     color: #eee;
   }
-  .main-inner {
+  .content-wrap {
     background: #fff;
-    opacity: 0.9;
+    opacity: 0.7;
   }
   .posts-expand .post-title-link::before {
     background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
