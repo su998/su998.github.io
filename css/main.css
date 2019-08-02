@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #7d4d13;
+  background: #b90d87;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3164,7 +3164,7 @@ pre .javascript .function {
   font-weight: 400;
   font-family: 'Damion', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
-.fa {
+.fa-heart {
   animation: heartAnimate 1.33s ease-in-out infinite;
 }
 .with-love {
