@@ -1,3 +1,27 @@
+keyframes heartAnimate 0%,
+keyframes heartAnimate 100% {
+  transform: scale(1);
+}
+keyframes heartAnimate 10%,
+keyframes heartAnimate 30% {
+  transform: scale(0.9);
+}
+keyframes heartAnimate 20%,
+keyframes heartAnimate 40%,
+keyframes heartAnimate 60%,
+keyframes heartAnimate 80% {
+  transform: scale(1.1);
+}
+keyframes heartAnimate 50%,
+keyframes heartAnimate 70% {
+  transform: scale(1.1);
+}
+#heart {
+  animation: heartAnimate 1.33s ease-in-out infinite;
+}
+.with-love {
+  color: #ff7171;
+}
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif; /* 1 */
@@ -1833,7 +1857,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #38d161;
+  background: #2608ac;
 }
 .links-of-blogroll {
   font-size: 13px;
