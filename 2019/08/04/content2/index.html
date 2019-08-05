@@ -63,7 +63,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="”前端“,">
 
 
 
@@ -74,19 +74,20 @@
 
 
 
-<meta name="description" content="这是我的第一篇文章,所以我就写得宇宙超级无敌完美一点一律从简吧。">
+<meta name="description" content="本章讲述跑马灯效果实战中定时器清除的一些问题，以及踩过的诸多小坑。( ps:跑马灯效果就是各大手机店门口上面 LED屏文字移动很LOW炫酷的效果 )">
+<meta name="keywords" content="”前端“">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如鹿归林,如舟靠岸">
-<meta property="og:url" content="https://xiangling.cf/2019/07/29/content1/index.html">
+<meta property="og:title" content="关于定时器setInterval和setTimeout清除的问题">
+<meta property="og:url" content="https://xiangling.cf/2019/08/04/content2/index.html">
 <meta property="og:site_name" content="提拉米苏's blog">
-<meta property="og:description" content="这是我的第一篇文章,所以我就写得宇宙超级无敌完美一点一律从简吧。">
+<meta property="og:description" content="本章讲述跑马灯效果实战中定时器清除的一些问题，以及踩过的诸多小坑。( ps:跑马灯效果就是各大手机店门口上面 LED屏文字移动很LOW炫酷的效果 )">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://sc02.alicdn.com/kf/Udf66af669b79442ebeeaf476f410a427a.jpg">
-<meta property="og:updated_time" content="2019-08-01T10:53:22.484Z">
+<meta property="og:image" content="http://www.005.tv/uploads/allimg/190725/66-1ZH515064R06.png">
+<meta property="og:updated_time" content="2019-08-05T15:03:23.157Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如鹿归林,如舟靠岸">
-<meta name="twitter:description" content="这是我的第一篇文章,所以我就写得宇宙超级无敌完美一点一律从简吧。">
-<meta name="twitter:image" content="https://sc02.alicdn.com/kf/Udf66af669b79442ebeeaf476f410a427a.jpg">
+<meta name="twitter:title" content="关于定时器setInterval和setTimeout清除的问题">
+<meta name="twitter:description" content="本章讲述跑马灯效果实战中定时器清除的一些问题，以及踩过的诸多小坑。( ps:跑马灯效果就是各大手机店门口上面 LED屏文字移动很LOW炫酷的效果 )">
+<meta name="twitter:image" content="http://www.005.tv/uploads/allimg/190725/66-1ZH515064R06.png">
 
 
 
@@ -116,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="https://xiangling.cf/2019/07/29/content1/">
+  <link rel="canonical" href="https://xiangling.cf/2019/08/04/content2/">
 
 
 
 
 
-  <title>如鹿归林,如舟靠岸 | 提拉米苏's blog</title>
+  <title>关于定时器setInterval和setTimeout清除的问题 | 提拉米苏's blog</title>
   
 
 
@@ -258,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xiangling.cf/2019/07/29/content1/">
+    <link itemprop="mainEntityOfPage" href="https://xiangling.cf/2019/08/04/content2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Huaiping Su">
@@ -275,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">如鹿归林,如舟靠岸</h1>
+          <h1 class="post-title" itemprop="name headline">关于定时器setInterval和setTimeout清除的问题</h1>
         
 
         <div class="post-meta">
@@ -287,8 +288,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-29T22:03:23+08:00">
-                2019-07-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-04T22:14:41+08:00">
+                2019-08-04
               </time>
             
 
@@ -306,8 +307,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/29/content1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/29/content1/" itemprop="commentCount"></span>
+                <a href="/2019/08/04/content2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/04/content2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -335,40 +336,43 @@
       
 
       
-        <meta name="generator" content="Hexo 3.9.0"><p><img src="https://sc02.alicdn.com/kf/Udf66af669b79442ebeeaf476f410a427a.jpg" alt="img"></p>
-<p>这是我的第一篇文章,所以我就写得<del>宇宙超级无敌完美一点</del>一律从简吧。</p>
-<hr>
+        <meta name="generator" content="Hexo 3.9.0"><p><img src="http://www.005.tv/uploads/allimg/190725/66-1ZH515064R06.png" alt></p>
+<p>本章讲述跑马灯效果实战中定时器清除的一些问题，以及踩过的诸多小坑。( <em>ps:跑马灯效果就是各大手机店门口上面 LED屏文字移动很<del>LOW</del>炫酷的效果</em> )</p>
 <a id="more"></a>
 
-<h3 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h3><h4 id="1-前端学习"><a href="#1-前端学习" class="headerlink" title="1. 前端学习"></a>1. 前端学习</h4><h5 id="认准wc3shool"><a href="#认准wc3shool" class="headerlink" title="认准wc3shool"></a>认准<a href="https://www.w3school.com.cn/" target="_blank" rel="noopener">wc3shool</a></h5><ul>
-<li>js基础入门<del>到脱坑</del></li>
-<li>jquery</li>
-<li>http、ajax</li>
-<li>nodejs</li>
-<li><a href="https://cn.vuejs.org/" target="_blank" rel="noopener">vue</a>、react</li>
-</ul>
-<h4 id="2-后端了解涉猎"><a href="#2-后端了解涉猎" class="headerlink" title="2. 后端了解涉猎"></a>2. 后端了解涉猎</h4><ul>
-<li>多线程、高并发</li>
-<li>hashMap</li>
-<li>lazyload</li>
-</ul>
-<h4 id="3-Go语言"><a href="#3-Go语言" class="headerlink" title="3. Go语言"></a>3. Go语言</h4><ul>
-<li><a href="https://golang.org/" target="_blank" rel="noopener">Go</a>（又称Golang）是Google开发的一种静态强类型、编译型、并发型，并具有垃圾回收功能的编程语言。<br>罗伯特·格瑞史莫（Robert Griesemer），罗勃·派克（Rob Pike）及肯·汤普逊（Ken Thompson）于2007年9月开始设计Go，稍后Ian Lance Taylor、Russ Cox加入项目。Go是基于Inferno操作系统所开发的。Go于2009年11月正式宣布推出，成为开放源代码项目，并在Linux及Mac OS X平台上进行了实现，后来追加了Windows系统下的实现。在2016年，Go被软件评价公司TIOBE 选为“TIOBE 2016 年最佳语言”。<br>emmmm,教练~我想学这个！</li>
-</ul>
 
+
+<ul>
+<li><p>我们先把页面样式做出来，定义两个按钮，一个用来启动定时器，另一个清除定时器。</p>
+<p>  话不多说直接先上代码</p>
+</li>
+</ul>
+<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><div></div></span><br><span class="line">       <input type="<span" class="string">"button"</span> value=<span class="string">"开始"</span> ><br><span class="line">       <input type="<span" class="string">"button"</span> value=<span class="string">"停止"</span> ><br><span class="line">       <h3>小墨和小画,一个穿白衬衫,一个穿黑背心</h3></span><br><span class="line">   </span></pre></td></tr></tbody></table></figure></div><br><span class="line">   </span><br><span class="line">   <script></span><br><span class="line">    <span class="comment">//逻辑分析</span></span><br><span class="line">       <span class="comment">//给开始按钮绑定一个点击事件star()</span></span><br><span class="line">       <span class="comment">//拿到msg字符串，然后调用字符串的substring来进行字符串的截取操作，把第一个字符截取出来，放到最后一个位置即可</span></span><br><span class="line"></span><br><span class="line">       function start() {</span><br><span class="line">           <span class="comment">//先获取文本内容</span></span><br><span class="line">           var msg = document.getElementById(<span class="string">"msg"</span>).textContent;</span><br><span class="line">           <span class="comment">//截取msg第一个字符</span></span><br><span class="line">           var first = msg.substring(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">           <span class="comment">//截取msg除开第一个字符剩余部分</span></span><br><span class="line">           var other = msg.substring(<span class="number">1</span>);</span><br><span class="line">           <span class="comment">//重新拼接msg 将第一个字符移到最后一位</span></span><br><span class="line">           msg = other + first;</span><br><span class="line">           <span class="comment">//渲染到页面</span></span><br><span class="line">           document.getElementById(<span class="string">"msg"</span>).innerText = msg;</span><br><span class="line">           console.<span class="built_in">log</span>(msg);</span><br><span class="line">       }</span><br><span class="line">    </script></span><br>
+
+<ul>
+<li>然后设置定时器每0.5秒执行一次，点击停止按钮清除定时器</li>
+</ul>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">      划重点！敲黑板</span></span><br><span class="line"><span class="comment">      一、为了让其他方法控制定时器的开关，所以要在全局设置一个定时器对象以供调用</span></span><br><span class="line"><span class="comment">      二、解决连续点击开始叠加多个定时器的坑(重要！)</span></span><br><span class="line"><span class="comment">         如果在函数内部声明定时器ID的话，每次clearInterval清除的都是值为null的timer</span></span><br><span class="line"><span class="comment">         并没有清除到上一个定时器的timer，所有就会产生回调堆积，越来越快</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">   var timer = null;</span><br><span class="line">  	<span class="function">function <span class="title">start</span><span class="params">()</span> </span>{</span><br><span class="line">          <span class="comment">//每次点击清除定时器</span></span><br><span class="line">          clearInterval(timer)</span><br><span class="line">          <span class="comment">//刚刚的代码内容我们用新的函数time()包裹起来</span></span><br><span class="line">          <span class="function">function <span class="title">time</span><span class="params">()</span> </span>{...}</span><br><span class="line">          <span class="comment">// 设置定时器并赋值给timer</span></span><br><span class="line">         timer = setInterval(time,<span class="number">500</span>);</span><br><span class="line">      }</span><br><span class="line">      </span><br><span class="line">      <span class="comment">// 清除定时器的方法</span></span><br><span class="line">      <span class="function">function <span class="title">stop</span><span class="params">()</span> </span>{</span><br><span class="line">          clearInterval(timer);</span><br><span class="line">      }</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>别慌，上面的代码还有坑！虽然解决了定时器叠加的坑，但现在你会发现快速连续点击开始，文字会卡住不动，这是因为上个定时器开启后还没有执行你就清除了。解决这个坑我们就要利用timer来做个判断。</li>
+</ul>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var timer = null;</span><br><span class="line">  	<span class="function">function <span class="title">start</span><span class="params">()</span> </span>{</span><br><span class="line">      	<span class="comment">//在这里我们做个判断，第二次点击开始后timer就不为null了，直接用return跳出函数</span></span><br><span class="line">      	<span class="keyword">if</span>(timer!=null)<span class="keyword">return</span></span><br><span class="line">	<span class="comment">//不再执行下面代码</span></span><br><span class="line">          clearInterval(timer)</span><br><span class="line">          function time() {...}</span><br><span class="line">          timer = setInterval(time,<span class="number">500</span>);</span><br><span class="line">	}</span><br></pre></td></tr></tbody></table></figure>
+
+</div></article></div></div></div></div></main></div>
       
-    </div>
     
     
     
-
     
 
     
 
     
 
-    <!-- 文章结尾 -->
+    
+
+    
     <div>
       
         <div>
@@ -383,6 +387,12 @@
     
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/”前端“/" rel="tag"># ”前端“</a>
+          
+        </div>
+      
 
       
       
@@ -392,15 +402,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/07/29/content1/" rel="next" title="如鹿归林,如舟靠岸">
+                <i class="fa fa-chevron-left"></i> 如鹿归林,如舟靠岸
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/04/content2/" rel="prev" title="关于定时器setInterval和setTimeout清除的问题">
-                关于定时器setInterval和setTimeout清除的问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -409,21 +419,21 @@
       
       
     </footer>
-  </div>
   
   
   
-  </article>
+  
+  
 
 
 
     <div class="post-spread">
       
     </div>
-  </div>
+  
 
 
-          </div>
+          
           
 
 
@@ -436,7 +446,7 @@
 
 
 
-        </div>
+        
         
           
   
@@ -544,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#学习目标"><span class="nav-number">1.</span> <span class="nav-text">学习目标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-前端学习"><span class="nav-number">1.1.</span> <span class="nav-text">1. 前端学习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#认准wc3shool"><span class="nav-number">1.1.1.</span> <span class="nav-text">认准wc3shool</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-后端了解涉猎"><span class="nav-number">1.2.</span> <span class="nav-text">2. 后端了解涉猎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Go语言"><span class="nav-number">1.3.</span> <span class="nav-text">3. Go语言</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">小墨和小画,一个穿白衬衫,一个穿黑背心</span></a></li></ol></div>
             
 
           </div>
@@ -559,8 +569,8 @@
 
 
         
-      </div>
-    </main>
+      
+    
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
@@ -604,7 +614,7 @@
 
     
 
-  </div>
+  
 
   
 
@@ -790,4 +800,4 @@
 
 
 
-<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html><!-- 文章结尾 -->
