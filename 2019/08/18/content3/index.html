@@ -63,7 +63,7 @@
 
 
 
-  <meta name="keywords" content="-Vue,">
+  <meta name="keywords" content="Vue,前端,">
 
 
 
@@ -74,20 +74,20 @@
 
 
 
-<meta name="description" content="自定义指令是用来操作DOM的。尽管Vue推崇数据驱动视图的理念，但并非所有情况都适合数据驱动。自定义指令就是一种有效的补充和扩展，不仅可用于定义任何的DOM操作，并且是可复用的。 &lt; !– more – &gt; 先了解一下,在 vue 中,有很多内置的指令.  v-for 用于遍历  v-if & v-show 用于隐藏和显示元素(区别在于后者是修改 display:block|none,前者是不创">
-<meta name="keywords" content="-Vue">
+<meta name="description" content="自定义指令是用来操作DOM的。尽管Vue推崇数据驱动视图的理念，但并非所有情况都适合数据驱动。自定义指令就是一种有效的补充和扩展，不仅可用于定义任何的DOM操作，并且是可复用的。">
+<meta name="keywords" content="Vue,前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue-自定义指令的使用">
 <meta property="og:url" content="https://xiangling.cf/2019/08/18/content3/index.html">
 <meta property="og:site_name" content="提拉米苏's blog">
-<meta property="og:description" content="自定义指令是用来操作DOM的。尽管Vue推崇数据驱动视图的理念，但并非所有情况都适合数据驱动。自定义指令就是一种有效的补充和扩展，不仅可用于定义任何的DOM操作，并且是可复用的。 &lt; !– more – &gt; 先了解一下,在 vue 中,有很多内置的指令.  v-for 用于遍历  v-if & v-show 用于隐藏和显示元素(区别在于后者是修改 display:block|none,前者是不创">
+<meta property="og:description" content="自定义指令是用来操作DOM的。尽管Vue推崇数据驱动视图的理念，但并非所有情况都适合数据驱动。自定义指令就是一种有效的补充和扩展，不仅可用于定义任何的DOM操作，并且是可复用的。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://gandre.ws/blog/wp-content/uploads/2013/05/husky-penguin-mutant-copy.jpg">
-<meta property="og:image" content="https://sc02.alicdn.com/kf/U663fd3353e0a44059e5fd27f44b30811T.jpg_200x200.jpg">
-<meta property="og:updated_time" content="2019-08-18T14:07:47.373Z">
+<meta property="og:image" content="https://sc02.alicdn.com/kf/U0117c7eca8234b659246961635a6a4b9d.jpg">
+<meta property="og:updated_time" content="2019-08-18T14:45:22.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue-自定义指令的使用">
-<meta name="twitter:description" content="自定义指令是用来操作DOM的。尽管Vue推崇数据驱动视图的理念，但并非所有情况都适合数据驱动。自定义指令就是一种有效的补充和扩展，不仅可用于定义任何的DOM操作，并且是可复用的。 &lt; !– more – &gt; 先了解一下,在 vue 中,有很多内置的指令.  v-for 用于遍历  v-if & v-show 用于隐藏和显示元素(区别在于后者是修改 display:block|none,前者是不创">
+<meta name="twitter:description" content="自定义指令是用来操作DOM的。尽管Vue推崇数据驱动视图的理念，但并非所有情况都适合数据驱动。自定义指令就是一种有效的补充和扩展，不仅可用于定义任何的DOM操作，并且是可复用的。">
 <meta name="twitter:image" content="http://gandre.ws/blog/wp-content/uploads/2013/05/husky-penguin-mutant-copy.jpg">
 
 
@@ -361,7 +361,8 @@
       
         <meta name="generator" content="Hexo 3.9.0"><p><img src="http://gandre.ws/blog/wp-content/uploads/2013/05/husky-penguin-mutant-copy.jpg" alt></p>
 <p>自定义指令是用来操作DOM的。尽管Vue推崇数据驱动视图的理念，但并非所有情况都适合数据驱动。自定义指令就是一种有效的补充和扩展，不仅可用于定义任何的DOM操作，并且是可复用的。</p>
-<p>< !– more – ></p>
+<a id="more"></a>
+
 <p>先了解一下,在 vue 中,有很多内置的指令.</p>
 <ul>
 <li><p><strong>v-for</strong> 用于遍历</p>
@@ -408,17 +409,16 @@
 <li><p>最后调用指令就行啦</p>
 </li>
 </ul>
-<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <<span class="selector-tag">div</span> id=<span class="string">'app'</span>></span><br><span class="line">  <<span class="selector-tag">input</span> type=<span class="string">"text"</span>></span><br><span class="line">  <<span class="selector-tag">input</span> type=<span class="string">"text"</span> v-focus  v-<span class="attribute">color</span>=<span class="string">"red"</span>></span><br><span class="line"></span></pre></td></tr></tbody></table></figure></div><br>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">'app'</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-focus</span>  <span class="attr">v-color</span>=<span class="string">"red"</span>></span></span><br><span class="line"><span class="tag">div</span>></span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://sc02.alicdn.com/kf/U663fd3353e0a44059e5fd27f44b30811T.jpg_200x200.jpg" alt></p>
+<p><img src="https://sc02.alicdn.com/kf/U0117c7eca8234b659246961635a6a4b9d.jpg" alt></p>
 <hr>
-<p>#####总结：</p>
-<ul>
+<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><ul>
 <li><p>使用 Vue.directive() 来新建一个全局指令,(指令使用在HTML元素属性上的)</p>
 </li>
 <li><p>Vue.directive(‘focus’) 第一个参数focus是指令名,指令名在声明的时候,不需要加 v-</p>
 </li>
-<li><p>在使用指令的HTML元素上,<code><input type="text" v-focus v-color="red"></code> 我们需要加上 v-.</p>
+<li><p>在使用指令的HTML元素上,我们需要加上 v-.</p>
 </li>
 <li><p>Vue.directive(‘focus’,{}) 第二个参数是一个对象,对象内部有个 inserted() 的函数,函数有 el 这个参数.</p>
 <ul>
@@ -429,9 +429,9 @@
 </ul>
 </li>
 </ul>
-</div></article></div></div></div></div></main></div>
+
       
-    
+    </div>
     
     
     
@@ -442,7 +442,7 @@
 
     
 
-    
+    <!-- 文章结尾 -->
     <div>
       
         <div>
@@ -459,7 +459,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Vue/" rel="tag"><i class="fa fa-tag"></i> -Vue</a>
+            <a href="/tags/Vue/" rel="tag"><i class="fa fa-tag"></i> Vue</a>
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
           
         </div>
       
@@ -489,21 +491,21 @@
       
       
     </footer>
+  </div>
   
   
   
-  
-  
+  </article>
 
 
 
     <div class="post-spread">
       
     </div>
-  
+  </div>
 
 
-          
+          </div>
           
 
 
@@ -516,7 +518,7 @@
 
 
 
-        
+        </div>
         
           
   
@@ -584,7 +586,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -633,7 +635,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义全局指令"><span class="nav-number">1.</span> <span class="nav-text">自定义全局指令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义全局指令"><span class="nav-number">1.</span> <span class="nav-text">自定义全局指令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结："><span class="nav-number">2.</span> <span class="nav-text">总结：</span></a></li></ol></div>
             
 
           </div>
@@ -648,8 +650,8 @@
 
 
         
-      
-    
+      </div>
+    </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
@@ -693,7 +695,7 @@
 
     
 
-  
+  </div>
 
   
 
@@ -879,4 +881,4 @@
 
 
 
-<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html><!-- 文章结尾 -->
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html>
