@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6cc4ff;
+  background: #d7a11d;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3133,9 +3133,9 @@ pre .javascript .function {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background: #076585; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #fff, #076585); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #fff, #076585); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #f7f8f8; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #acbb78, #f7f8f8); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #acbb78, #f7f8f8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
