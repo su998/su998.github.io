@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e23436;
+  background: #37e0ab;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3133,9 +3133,9 @@ pre .javascript .function {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background: #f7f8f8; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #acbb78, #f7f8f8); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #acbb78, #f7f8f8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ffefba; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #fff, #ffefba); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #fff, #ffefba); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
@@ -3146,7 +3146,7 @@ pre .javascript .function {
   }
   .content-wrap {
     background: #fff;
-    opacity: 0.7;
+    opacity: 1;
   }
   .posts-expand .post-title-link::before {
     background-image: linear-gradient(90deg, #a166ab 0%, #ef4e7b 25%, #f37055 50%, #ef4e7b 75%, #a166ab 100%);
@@ -3197,12 +3197,12 @@ pre .javascript .function {
 }
 .headband {
   height: 3px;
-  background: #b29f94;
+  background: #005aa7;
 }
 .site-meta {
   padding: 20px 0;
   color: #fff;
-  background: #b29f94;
+  background: #005aa7;
 }
 .site-subtitle {
   margin-top: 10px;
@@ -3210,17 +3210,17 @@ pre .javascript .function {
   color: #fff;
 }
 ::selection {
-  background: #b29f94;
+  background: #005aa7;
   color: #f7f7f7;
 }
 ::-moz-selection {
-  background: #b29f94;
+  background: #005aa7;
   color: #f7f7f7;
 }
 .btn:hover {
-  border-color: #b29f94;
+  border-color: #005aa7;
   color: #fff;
-  background: #b29f94;
+  background: #005aa7;
 }
 .posts-expand .post-title-link::before {
   content: "";
@@ -3229,7 +3229,7 @@ pre .javascript .function {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #b29f94;
+  background-color: #005aa7;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   -moz-transform: scaleX(0);
