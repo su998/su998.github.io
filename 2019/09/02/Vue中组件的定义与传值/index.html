@@ -1,0 +1,1052 @@
+<!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-Hans"><head><meta name="generator" content="Hexo 3.9.0">
+  <!-- pajax-->
+  
+  <!-- pajax-->
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/cat32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/cat16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Vue,前端,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="什么是组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；组件化和模块化的不同：  模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；">
+<meta name="keywords" content="Vue,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue中组件的定义与传值">
+<meta property="og:url" content="https://xiangling.cf/2019/09/02/Vue中组件的定义与传值/index.html">
+<meta property="og:site_name" content="提拉米苏's blog">
+<meta property="og:description" content="什么是组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；组件化和模块化的不同：  模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==">
+<meta property="og:updated_time" content="2019-09-02T06:38:48.142Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue中组件的定义与传值">
+<meta name="twitter:description" content="什么是组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；组件化和模块化的不同：  模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一； 组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；">
+<meta name="twitter:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://xiangling.cf/2019/09/02/Vue中组件的定义与传值/">
+
+
+
+
+
+  <title>Vue中组件的定义与传值 | 提拉米苏's blog</title>
+  
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  <!-- Aplayer -->
+  <!-- 
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  -->
+<!-- Aplayer -->
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">提拉米苏's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">喜欢摸鱼的上班族</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xiangling.cf/2019/09/02/Vue中组件的定义与传值/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Huaiping Su">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/tx.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="提拉米苏's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue中组件的定义与传值</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-02T14:30:16+08:00">
+                2019-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/框架/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/02/Vue中组件的定义与传值/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/02/Vue中组件的定义与传值/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/02/Vue中组件的定义与传值/" class="leancloud_visitors" data-flag-title="Vue中组件的定义与传值">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数:</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计:</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 ≈</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <meta name="generator" content="Hexo 3.9.0"><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://sc02.alicdn.com/kf/U7bbd76c6d91c4f079b491ac3c600472d9.jpg" alt></p>
+<p>什么是组件： 组件的出现，就是为了拆分Vue实例的代码量的，能够让我们以不同的组件，来划分不同的功能模块，将来我们需要什么样的功能，就可以去调用对应的组件即可；<br>组件化和模块化的不同：</p>
+<ul>
+<li>模块化： 是从代码逻辑的角度进行划分的；方便代码分层开发，保证每个功能模块的职能单一；</li>
+<li>组件化： 是从UI界面的角度进行划分的；前端的组件化，方便UI组件的重用；</li>
+</ul>
+<hr>
+<a id="more"></a>
+
+<h3 id="全局组件定义的三种方式"><a href="#全局组件定义的三种方式" class="headerlink" title="全局组件定义的三种方式"></a>全局组件定义的三种方式</h3><ol>
+<li><p>使用 Vue.extend 配合 Vue.component 方法：</p>
+<figure class="highlight actionscript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> login = Vue.extend({</span><br><span class="line">      template: <span class="string">'<h1>登录</h1>'</span></span><br><span class="line">    });</span><br><span class="line">    Vue.component(<span class="string">'login'</span>, login);</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>直接使用 Vue.component 方法：</p>
+<figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'register'</span>, {</span><br><span class="line">      <span class="keyword">template</span>: <span class="string">'<h1>注册</h1>'</span></span><br><span class="line">    });</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>将模板字符串，定义到script标签种：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">script</span> <span class="attr">id</span>=<span class="string">"tmpl"</span> <span class="attr">type</span>=<span class="string">"x-template"</span>></span></span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag"><<span class="name">div</span>></span><span class="tag"><<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>></span>登录<span class="tag">a</span>></span> | <span class="tag"><<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>></span>注册<span class="tag">a</span>></span><span class="tag">div</span>></span><br><span class="line">    <span class="tag">script</span>></span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<p>同时，需要使用 Vue.component 来定义组件：</p>
+<figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'account'</span>, {</span><br><span class="line">      <span class="keyword">template</span>: <span class="string">'#tmpl'</span></span><br><span class="line">    });</span><br></pre></td></tr></tbody></table></figure>
+
+<blockquote>
+<p>注意： 组件中的DOM结构，有且只能有唯一的根元素（Root Element）来进行包裹！</p>
+</blockquote>
+<h3 id="组件中展示数据和响应事件"><a href="#组件中展示数据和响应事件" class="headerlink" title="组件中展示数据和响应事件"></a>组件中展示数据和响应事件</h3><ol>
+<li><p>在组件中，<code>data</code>需要被定义为一个方法，例如：</p>
+<figure class="highlight less"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Vue</span><span class="selector-class">.component</span>(<span class="string">'account'</span>, {</span><br><span class="line">      <span class="attribute">template</span>: <span class="string">'#tmpl'</span>,</span><br><span class="line">      data() {</span><br><span class="line">        return {</span><br><span class="line">          <span class="attribute">msg</span>: <span class="string">'大家好！'</span></span><br><span class="line">        }</span><br><span class="line">      },</span><br><span class="line">      <span class="attribute">methods</span>:{</span><br><span class="line">        <span class="selector-tag">login</span>(){</span><br><span class="line">          <span class="selector-tag">alert</span>(<span class="string">'点击了登录按钮'</span>);</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">    });</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>在子组件中，如果将模板字符串，定义到了script标签中，那么，要访问子组件身上的<code>data</code>属性中的值，需要使用<code>this</code>来访问；</p>
+</li>
+</ol>
+<h3 id="【重点】为什么组件中的data属性必须定义为一个方法并返回一个对象"><a href="#【重点】为什么组件中的data属性必须定义为一个方法并返回一个对象" class="headerlink" title="【重点】为什么组件中的data属性必须定义为一个方法并返回一个对象"></a>【重点】为什么组件中的data属性必须定义为一个方法并返回一个对象</h3><ol>
+<li>通过计数器案例演示</li>
+</ol>
+<h3 id="使用components属性定义局部子组件"><a href="#使用components属性定义局部子组件" class="headerlink" title="使用components属性定义局部子组件"></a>使用<code>components</code>属性定义局部子组件</h3><ol>
+<li><p>组件实例定义方式：</p>
+<figure class="highlight django"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag"><<span class="name">script</span>></span></span></span><br><span class="line"><span class="xml">    // 创建 Vue 实例，得到 ViewModel</span></span><br><span class="line"><span class="xml">    var vm = new Vue({</span></span><br><span class="line"><span class="xml">      el: '#app',</span></span><br><span class="line"><span class="xml">      data: {},</span></span><br><span class="line"><span class="xml">      methods: {},</span></span><br><span class="line"><span class="xml">      components: { // 定义子组件</span></span><br><span class="line"><span class="xml">        account: { // account 组件</span></span><br><span class="line"><span class="xml">          template: '<span class="tag"><<span class="name">div</span>></span><span class="tag"><<span class="name">h1</span>></span>这是Account组件</span><span class="template-variable">{{name}}</span><span class="xml"><span class="tag">h1</span>></span><span class="tag"><<span class="name">login</span>></span><span class="tag">login</span>></span><span class="tag">div</span>>', // 在这里使用定义的子组件<br><span class="line"><span class="xml">          components: { // 定义子组件的子组件</span></span><br><span class="line"><span class="xml">            login: { // login 组件</span></span><br><span class="line"><span class="xml">              template: "<span class="tag"><<span class="name">h3</span>></span>这是登录组件<span class="tag">h3</span>></span>"</span><br><span class="line"><span class="xml">            }</span></span><br><span class="line"><span class="xml">          }</span></span><br><span class="line"><span class="xml">        }</span></span><br><span class="line"><span class="xml">      }</span></span><br><span class="line"><span class="xml">    });</span></span><br><span class="line"><span class="xml">  <span class="tag">script</span>></span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>引用组件：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">account</span>></span><span class="tag">account</span>></span><br><span class="line">  <span class="tag">div</span>></span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<h2 id="使用flag标识符结合v-if和v-else切换组件"><a href="#使用flag标识符结合v-if和v-else切换组件" class="headerlink" title="使用flag标识符结合v-if和v-else切换组件"></a>使用<code>flag</code>标识符结合<code>v-if</code>和<code>v-else</code>切换组件</h2><ol>
+<li><p>页面结构：</p>
+<figure class="highlight applescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"app"</span>></span><br><span class="line">    <input type="<span" class="string">"button"</span> value=<span class="string">"toggle"</span> @click=<span class="string">"flag=!flag"</span>><br><span class="line">    <<span class="keyword">my</span>-com1 v-<span class="keyword">if</span>=<span class="string">"flag"</span>>my</span>-com1><br><span class="line">    <<span class="keyword">my</span>-com2 v-<span class="keyword">else</span>=<span class="string">"flag"</span>>my</span>-com2><br><span class="line">  div</span>><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>Vue实例定义：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">script</span>></span></span><br><span class="line"><span class="actionscript">    Vue.component(<span class="string">'myCom1'</span>, {</span></span><br><span class="line"><span class="handlebars"><span class="xml">      template: '<span class="tag"><<span class="name">h3</span>></span>奔波霸<span class="tag">h3</span>></span>'</span></span><br><span class="line">    })</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    Vue.component(<span class="string">'myCom2'</span>, {</span></span><br><span class="line"><span class="handlebars"><span class="xml">      template: '<span class="tag"><<span class="name">h3</span>></span>霸波奔<span class="tag">h3</span>></span>'</span></span><br><span class="line">    })</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// 创建 Vue 实例，得到 ViewModel</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      data: {</span><br><span class="line"><span class="actionscript">        flag: <span class="literal">true</span></span></span><br><span class="line">      },</span><br><span class="line">      methods: {}</span><br><span class="line">    });</span><br><span class="line">  <span class="tag">script</span>></span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<h2 id="使用-is属性来切换不同的子组件-并添加切换动画"><a href="#使用-is属性来切换不同的子组件-并添加切换动画" class="headerlink" title="使用:is属性来切换不同的子组件,并添加切换动画"></a>使用<code>:is</code>属性来切换不同的子组件,并添加切换动画</h2><ol>
+<li><p>组件实例定义方式：</p>
+<figure class="highlight arduino"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 登录组件</span></span><br><span class="line">  <span class="keyword">const</span> login = Vue.extend({</span><br><span class="line">    <span class="keyword">template</span>: `<div></div></span><br><span class="line">      <h3>登录组件</h3></span><br><span class="line">    </span></pre></td></tr></tbody></table></figure></li></ol></div>`<br><span class="line">  });</span><br><span class="line">  Vue.component(<span class="string">'login'</span>, login);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 注册组件</span></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">register</span> = Vue.extend({</span><br><span class="line">    <span class="keyword">template</span>: `<div></div></span><br><span class="line">      <h3>注册组件</h3></span><br><span class="line">    </span></div>`<br><span class="line">  });</span><br><span class="line">  Vue.component(<span class="string">'register'</span>, <span class="keyword">register</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 创建 Vue 实例，得到 ViewModel</span></span><br><span class="line">  var vm = <span class="keyword">new</span> Vue({</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: { comName: <span class="string">'login'</span> },</span><br><span class="line">    methods: {}</span><br><span class="line">  });</span><br>
+
+<li><p>使用<code>component</code>标签，来引用组件，并通过<code>:is</code>属性来指定要加载的组件：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> @<span class="attr">click.prevent</span>=<span class="string">"comName='login'"</span>></span>登录<span class="tag">a</span>></span><br><span class="line">  <span class="tag"><<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> @<span class="attr">click.prevent</span>=<span class="string">"comName='register'"</span>></span>注册<span class="tag">a</span>></span><br><span class="line">  <span class="tag"><<span class="name">hr</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">transition</span> <span class="attr">mode</span>=<span class="string">"out-in"</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">component</span> <span class="attr">:is</span>=<span class="string">"comName"</span>></span><span class="tag">component</span>></span><br><span class="line">  <span class="tag">transition</span>></span><br><span class="line"><span class="tag">div</span>></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>添加切换样式：</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">style</span>></span></span><br><span class="line"><span class="css">  <span class="selector-class">.v-enter</span>,</span></span><br><span class="line"><span class="css">  <span class="selector-class">.v-leave-to</span> {</span></span><br><span class="line">    opacity: 0;</span><br><span class="line">    transform: translateX(30px);</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line"><span class="css">  <span class="selector-class">.v-enter-active</span>,</span></span><br><span class="line"><span class="css">  <span class="selector-class">.v-leave-active</span> {</span></span><br><span class="line">    position: absolute;</span><br><span class="line"><span class="css">    <span class="selector-tag">transition</span>: <span class="selector-tag">all</span> 0<span class="selector-class">.3s</span> <span class="selector-tag">ease</span>;</span></span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  h3{</span><br><span class="line">    margin: 0;</span><br><span class="line">  }</span><br><span class="line"><span class="tag">style</span>></span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+
+<h2 id="父组件向子组件传值"><a href="#父组件向子组件传值" class="headerlink" title="父组件向子组件传值"></a>父组件向子组件传值</h2><ol>
+<li><p>组件实例定义方式，注意：一定要使用<code>props</code>属性来定义父组件传递过来的数据</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">script</span>></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 创建 Vue 实例，得到 ViewModel</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      data: {</span><br><span class="line"><span class="actionscript">        msg: <span class="string">'这是父组件中的消息'</span></span></span><br><span class="line">      },</span><br><span class="line">      components: {</span><br><span class="line">        son: {</span><br><span class="line"><span class="handlebars"><span class="xml">          template: '<span class="tag"><<span class="name">h1</span>></span>这是子组件 --- </span><span class="template-variable">{{finfo}}</span><span class="xml"><span class="tag">h1</span>></span>',</span></span><br><span class="line"><span class="actionscript">          props: [<span class="string">'finfo'</span>]</span></span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">    });</span><br><span class="line">  <span class="tag">script</span>></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>使用<code>v-bind</code>或简化指令，将数据传递到子组件中：</p>
+<figure class="highlight elixir"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><div id="<span" class="string">"app"</div></span>><br><span class="line">    <son <span class="symbol">:finfo=<span class="string">"msg"</span>></son></span><br><span class="line">  <<span class="regexp">/div></span></span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<h2 id="子组件向父组件传值"><a href="#子组件向父组件传值" class="headerlink" title="子组件向父组件传值"></a>子组件向父组件传值</h2><ol>
+<li><p>原理：父组件将方法的引用，传递到子组件内部，子组件在内部调用父组件传递过来的方法，同时把要发送给父组件的数据，在调用方法的时候当作参数传递进去；</p>
+</li>
+<li><p>父组件将方法的引用传递给子组件，其中，<code>getMsg</code>是父组件中<code>methods</code>中定义的方法名称，<code>func</code>是子组件调用传递过来方法时候的方法名称</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">son</span> @<span class="attr">func</span>=<span class="string">"getMsg"</span>></span><span class="tag">son</span>></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>子组件内部通过<code>this.$emit('方法名', 要传递的数据)</code>方式，来调用父组件中的方法，同时把数据传递给父组件使用</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>></span></span><br><span class="line">    <span class="comment"><!-- 引用父组件 --></span></span><br><span class="line">    <span class="tag"><<span class="name">son</span> @<span class="attr">func</span>=<span class="string">"getMsg"</span>></span><span class="tag">son</span>></span><br><span class="line"></span><br><span class="line">    <span class="comment"><!-- 组件模板定义 --></span></span><br><span class="line">    <span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"x-template"</span> <span class="attr">id</span>=<span class="string">"son"</span>></span></span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag"><<span class="name">div</span>></span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag"><<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"向父组件传值"</span> @<span class="attr">click</span>=<span class="string">"sendMsg"</span> /></span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">div</span>></span></span></span><br><span class="line">    <span class="tag">script</span>></span><br><span class="line">  <span class="tag">div</span>></span><br><span class="line"></span><br><span class="line">  <span class="tag"><<span class="name">script</span>></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 子组件的定义方式</span></span></span><br><span class="line"><span class="actionscript">    Vue.component(<span class="string">'son'</span>, {</span></span><br><span class="line"><span class="actionscript">      template: <span class="string">'#son'</span>, <span class="comment">// 组件模板Id</span></span></span><br><span class="line">      methods: {</span><br><span class="line"><span class="actionscript">        sendMsg() { <span class="comment">// 按钮的点击事件</span></span></span><br><span class="line"><span class="actionscript">          <span class="keyword">this</span>.$emit(<span class="string">'func'</span>, <span class="string">'OK'</span>); <span class="comment">// 调用父组件传递过来的方法，同时把数据传递出去</span></span></span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// 创建 Vue 实例，得到 ViewModel</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      data: {},</span><br><span class="line">      methods: {</span><br><span class="line"><span class="actionscript">        getMsg(val){ <span class="comment">// 子组件中，通过 this.$emit() 实际调用的方法，在此进行定义</span></span></span><br><span class="line">          alert(val);</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">    });</span><br><span class="line">  <span class="tag">script</span>></span><br></pre></td></tr></tbody></table></figure>
+
+</li>
+</ol>
+<h2 id="评论列表案例"><a href="#评论列表案例" class="headerlink" title="评论列表案例"></a>评论列表案例</h2><p>目标：主要练习父子组件之间传值</p>
+<h2 id="使用-this-refs-来获取元素和组件"><a href="#使用-this-refs-来获取元素和组件" class="headerlink" title="使用 this.$refs 来获取元素和组件"></a>使用 <code>this.$refs</code> 来获取元素和组件</h2><figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">div</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"获取元素内容"</span> @<span class="attr">click</span>=<span class="string">"getElement"</span> /></span></span><br><span class="line">    <span class="comment"><!-- 使用 ref 获取元素 --></span></span><br><span class="line">    <span class="tag"><<span class="name">h1</span> <span class="attr">ref</span>=<span class="string">"myh1"</span>></span>这是一个大大的H1<span class="tag">h1</span>></span><br><span class="line"></span><br><span class="line">    <span class="tag"><<span class="name">hr</span>></span></span><br><span class="line">    <span class="comment"><!-- 使用 ref 获取子组件 --></span></span><br><span class="line">    <span class="tag"><<span class="name">my-com</span> <span class="attr">ref</span>=<span class="string">"mycom"</span>></span><span class="tag">my-com</span>></span><br><span class="line">  <span class="tag">div</span>></span><br><span class="line"><span class="tag">div</span>></span><br><span class="line"></span><br><span class="line"><span class="tag"><<span class="name">script</span>></span></span><br><span class="line"><span class="actionscript">  Vue.component(<span class="string">'my-com'</span>, {</span></span><br><span class="line"><span class="handlebars"><span class="xml">    template: '<span class="tag"><<span class="name">h5</span>></span>这是一个子组件<span class="tag">h5</span>></span>',</span></span><br><span class="line">    data() {</span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span> {</span></span><br><span class="line"><span class="actionscript">        name: <span class="string">'子组件'</span></span></span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  });</span><br><span class="line"></span><br><span class="line"><span class="actionscript">  <span class="comment">// 创建 Vue 实例，得到 ViewModel</span></span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">    el: <span class="string">'#app'</span>,</span></span><br><span class="line">    data: {},</span><br><span class="line">    methods: {</span><br><span class="line">      getElement() {</span><br><span class="line"><span class="actionscript">        <span class="comment">// 通过 this.$refs 来获取元素</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.myh1.innerText);</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 通过 this.$refs 来获取组件</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.$refs.mycom.name);</span></span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  });</span><br><span class="line"><span class="tag">script</span>></span><br></pre></td></tr></tbody></table></figure>
+
+</article></div></div></div></div></main></div><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script>
+      
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------ 本文结束 ------</div>
+    
+</div>
+
+      
+    </div>
+    <!-- 文章结尾 --> 
+    
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"><i class="fa fa-tag"></i> Vue</a>
+          
+            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/02/Vue动画过渡效果/" rel="next" title="Vue中的动画">
+                <i class="fa fa-chevron-left"></i> Vue中的动画
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  
+  
+  
+  
+  
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  
+
+
+          
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/tx.gif" alt="Huaiping Su">
+            
+              <p class="site-author-name" itemprop="name">Huaiping Su</p>
+              <p class="site-description motion-element" itemprop="description">带上猫狗吉他环游世界</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/su998" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:951193203@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局组件定义的三种方式"><span class="nav-number">1.</span> <span class="nav-text">全局组件定义的三种方式</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number"></span> <span class="nav-text">注册</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#组件中展示数据和响应事件"><span class="nav-number">1.</span> <span class="nav-text">组件中展示数据和响应事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#【重点】为什么组件中的data属性必须定义为一个方法并返回一个对象"><span class="nav-number">2.</span> <span class="nav-text">【重点】为什么组件中的data属性必须定义为一个方法并返回一个对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用components属性定义局部子组件"><span class="nav-number">3.</span> <span class="nav-text">使用components属性定义局部子组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用flag标识符结合v-if和v-else切换组件"><span class="nav-number"></span> <span class="nav-text">使用flag标识符结合v-if和v-else切换组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-is属性来切换不同的子组件-并添加切换动画"><span class="nav-number"></span> <span class="nav-text">使用:is属性来切换不同的子组件,并添加切换动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">登录组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">注册组件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父组件向子组件传值"><span class="nav-number"></span> <span class="nav-text">父组件向子组件传值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子组件向父组件传值"><span class="nav-number"></span> <span class="nav-text">子组件向父组件传值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论列表案例"><span class="nav-number"></span> <span class="nav-text">评论列表案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-this-refs-来获取元素和组件"><span class="nav-number"></span> <span class="nav-text">使用 this.$refs 来获取元素和组件</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">© <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Huaiping Su</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: false,
+        appId: '6DTfIwwgGSLjgBbv67kcqKTU-gzGzoHsz',
+        appKey: 'rXeQVaSyf3PiazBdAShKJbCB',
+        placeholder: 'ヾﾉ≧∀≦)o~ 有事请留言！ 评论功能以邮件作为通知方式！ 如有必要请填写正确邮箱！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("6DTfIwwgGSLjgBbv67kcqKTU-gzGzoHsz", "rXeQVaSyf3PiazBdAShKJbCB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+
+
+
+  <!-- 地板娘 -->
+ <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
+
+
+
+
+<script type="text/javascript" charset="utf-8" src="/js/lazyload-plugin/lazyload.intersectionObserver.min.js"></script></body></html><!-- 文章结尾 -->
