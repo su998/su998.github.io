@@ -69,6 +69,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="提拉米苏's blog" type="application/atom+xml">
+
 
 
 
@@ -431,7 +433,7 @@
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag"><<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"切换动画"</span> @<span class="attr">click</span>=<span class="string">"isshow = !isshow"</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">transition</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">before-enter</span>=<span class="string">"beforeEnter"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">enter</span>=<span class="string">"enter"</span></span></span><br><span class="line"><span class="tag">    @<span class="attr">after-enter</span>=<span class="string">"afterEnter"</span>></span></span><br><span class="line">      <span class="tag"><<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"isshow"</span> <span class="attr">class</span>=<span class="string">"show"</span>></span>OK<span class="tag"><<span class="name">\div</span>></span></span><br><span class="line">    <span class="tag"><<span class="name">\transition</span>></span></span><br><span class="line">  <span class="tag"><<span class="name">\div</span>></span></span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>定义三个 methods 钩子方法：</p>
-<figure class="highlight kotlin"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">methods: {</span><br><span class="line">        beforeEnter(el) { <span class="comment">// 动画进入之前的回调</span></span><br><span class="line">          el.style.transform = <span class="string">'translateX(500px)'</span>;</span><br><span class="line">        },</span><br><span class="line">        enter(el, done) { <span class="comment">// 动画进入完成时候的回调</span></span><br><span class="line">          el.offsetWidth;</span><br><span class="line">          el.style.transform = <span class="string">'translateX(0px)'</span>;</span><br><span class="line">          done();</span><br><span class="line">        },</span><br><span class="line">        afterEnter(el) { <span class="comment">// 动画进入完成之后的回调</span></span><br><span class="line">          <span class="keyword">this</span>.isshow = !<span class="keyword">this</span>.isshow;</span><br><span class="line">        }</span><br><span class="line">      }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">methods: {</span><br><span class="line">        before<span class="constructor">Enter(<span class="params">el</span>)</span> { <span class="comment">// 动画进入之前的回调</span></span><br><span class="line">          el.style.transform = 'translate<span class="constructor">X(500px)</span>';</span><br><span class="line">        },</span><br><span class="line">        enter(el, <span class="keyword">done</span>) { <span class="comment">// 动画进入完成时候的回调</span></span><br><span class="line">          el.offsetWidth;</span><br><span class="line">          el.style.transform = 'translate<span class="constructor">X(0px)</span>';</span><br><span class="line">          <span class="keyword">done</span><span class="literal">()</span>;</span><br><span class="line">        },</span><br><span class="line">        after<span class="constructor">Enter(<span class="params">el</span>)</span> { <span class="comment">// 动画进入完成之后的回调</span></span><br><span class="line">          this.isshow = !this.isshow;</span><br><span class="line">        }</span><br><span class="line">      }</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>定义动画过渡时长和样式：</p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.show</span>{</span><br><span class="line">      <span class="attribute">transition</span>: all <span class="number">0.4s</span> ease;</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
@@ -626,6 +628,13 @@
           </nav>
 
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
           
             <div class="links-of-author motion-element">
@@ -640,6 +649,12 @@
                     <a href="mailto:951193203@qq.com" target="_blank" title="E-Mail">
                       
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="/atom.xml" target="_blank" title="rss">
+                      
+                        <i class="fa fa-fw fa-globe"></i>rss</a>
                   </span>
                 
             </div>
